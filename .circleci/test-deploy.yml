@@ -1,8 +1,9 @@
 version: 2.1
 orbs:
   switch: amornc/switch@dev:<<pipeline.git.revision>>
-  orb-tools: circleci/orb-tools@11.5
-
+  orb-tools: circleci/orb-tools@11.6
+  gh: circleci/github-cli@2.2.0
+  
 filters: &filters
   tags:
     only: /.*/
@@ -12,11 +13,16 @@ jobs:
   # You may want to add additional validation steps to ensure the commands are working as expected.
   command-tests:
     docker:
-      - image: cimg/base:current
+      - image: 'cimg/node:lts'
     steps:
-      - checkout
+      - gh/setup
       # Run your orb's commands to validate them.
-      - switch/greet
+      - gh/clone:
+          dir: .
+          repo: https://github.com/zeabix-cloud-native/Snocko-GitHub-Action.git
+      - switch/seperate:
+          dir: .
+          sep: repositories.yaml
 workflows:
   test-deploy:
     jobs:
@@ -39,4 +45,4 @@ workflows:
             tags:
               only: /^v[0-9]+\.[0-9]+\.[0-9]+$/
 
-# VS Code Extension Version: 1.4.0
+# VS Code Extension Version: 1.5.0
