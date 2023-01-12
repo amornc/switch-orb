@@ -9,11 +9,11 @@ parameters:
     type: string
     default: "."
     description: Select the path to clone into. By default the current path will be selected, which is dictated by the job's "working_directory".
-  file1:
+  actions:
     type: string
     default: "github-actions-repositories.yaml"
     description: "github-actions-repositories.yaml file from step separate "
-  file2:
+  circleci:
     type: string
     default: "circleci-repositories.yaml"
     description: "circleci-repositories.yaml file from step separate "
@@ -22,23 +22,23 @@ steps:
       environment:
         PARAM_SEP: <<parameters.sep>>
         PARAM_DIR: <<parameters.dir>>
-        PARAM_FI1: <<parameters.file1>>
-        PARAM_FI2: <<parameters.file2>>
+        PARAM_FI1: <<parameters.actions>>
+        PARAM_FI2: <<parameters.circleci>>
       name: separate repository name
       command: <<include(scripts/sep.sh)>>
   - run:
       environment:
         PARAM_SEP: <<parameters.sep>>
         PARAM_DIR: <<parameters.dir>>
-        PARAM_FI1: <<parameters.file1>>
-        PARAM_FI2: <<parameters.file2>>
+        PARAM_FI1: <<parameters.actions>>
+        PARAM_FI2: <<parameters.circleci>>
       name: Check duplicate repository name
       command: <<include(scripts/dup.sh)>>
   - run:
       environment:
         PARAM_SEP: <<parameters.sep>>
         PARAM_DIR: <<parameters.dir>>
-        PARAM_FI1: <<parameters.file1>>
-        PARAM_FI2: <<parameters.file2>>
+        PARAM_FI1: <<parameters.actions>>
+        PARAM_FI2: <<parameters.circleci>>
       name: check repository name match with project name
       command: <<include(scripts/match.sh)>>

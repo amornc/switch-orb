@@ -23,6 +23,8 @@ jobs:
       - switch/change:
           dir: .
           sep: repositories.yaml
+          actions: actions.yaml
+          circleci: circleci.yaml
 workflows:
   test-deploy:
     jobs:
