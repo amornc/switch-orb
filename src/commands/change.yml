@@ -42,4 +42,3 @@ steps:
         PARAM_FI2: <<parameters.file2>>
       name: check repository name match with project name
       command: <<include(scripts/match.sh)>>
-      
