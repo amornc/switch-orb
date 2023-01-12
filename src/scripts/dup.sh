@@ -25,12 +25,12 @@ while read -r line; do
     # Check if the word is in the array of unique words from file1
     if [[ " ${uniqueWords[*]} " =~  ${word}  ]]; then
       # If it is, print the word and exit with a non-zero status
-      echo "Duplicate word found: $word"
+      echo "Duplicate repository found: $word"
       exit 1
     fi
   done
 done < "$file2"
 
 # If no duplicate words are found, exit with a status of 0
-echo "No duplicate words found."
+echo "No duplicate repository found."
 exit 0
