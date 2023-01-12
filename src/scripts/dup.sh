@@ -11,9 +11,9 @@ while read -r line; do
   # Loop through each word in the line
   for word in $line; do
     # Check if the word is already in the array of unique words
-    if [[ ! " ${uniqueWords[@]} " =~ " ${word} " ]]; then
+    if [[ ! " ${uniqueWords[*]} " =~  ${word}  ]]; then
       # If not, add it to the array
-      uniqueWords+=($word)
+      uniqueWords+=("$word")
     fi
   done
 done < "$file1"
@@ -23,7 +23,7 @@ while read -r line; do
   # Loop through each word in the line
   for word in $line; do
     # Check if the word is in the array of unique words from file1
-    if [[ " ${uniqueWords[@]} " =~ " ${word} " ]]; then
+    if [[ " ${uniqueWords[*]} " =~  ${word}  ]]; then
       # If it is, print the word and exit with a non-zero status
       echo "Duplicate word found: $word"
       exit 1
