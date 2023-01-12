@@ -8,5 +8,5 @@ while IFS= read -r line; do
       else
          echo "circleci repository does not match"
       fi
-done <$file
+done <"$file"
 exit 1

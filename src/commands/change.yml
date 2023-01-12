@@ -17,18 +17,28 @@ parameters:
     type: string
     default: "circleci-repositories.yaml"
     description: "circleci-repositories.yaml file from step separate "
-environment:
-  PARAM_SEP: <<parameters.sep>>
-  PARAM_DIR: <<parameters.dir>>
-  PARAM_FI1: <<parameters.file1>>
-  PARAM_FI2: <<parameters.file2>> 
 steps:
   - run:
+      environment:
+        PARAM_SEP: <<parameters.sep>>
+        PARAM_DIR: <<parameters.dir>>
+        PARAM_FI1: <<parameters.file1>>
+        PARAM_FI2: <<parameters.file2>>
       name: separate repository name
       command: <<include(scripts/sep.sh)>>
   - run:
+      environment:
+        PARAM_SEP: <<parameters.sep>>
+        PARAM_DIR: <<parameters.dir>>
+        PARAM_FI1: <<parameters.file1>>
+        PARAM_FI2: <<parameters.file2>>
       name: Check duplicate repository name
       command: <<include(scripts/dup.sh)>>
   - run:
+      environment:
+        PARAM_SEP: <<parameters.sep>>
+        PARAM_DIR: <<parameters.dir>>
+        PARAM_FI1: <<parameters.file1>>
+        PARAM_FI2: <<parameters.file2>>
       name: check repository name match with project name
       command: <<include(scripts/match.sh)>>
