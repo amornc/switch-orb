@@ -21,7 +21,7 @@ environment:
   PARAM_SEP: <<parameters.sep>>
   PARAM_DIR: <<parameters.dir>>
   PARAM_FI1: <<parameters.file1>>
-  PARAM_FI2: <<parameters.file2>>
+  PARAM_FI2: <<parameters.file2>> 
 steps:
   - run:
       name: separate repository name
