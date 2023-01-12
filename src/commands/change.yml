@@ -4,9 +4,6 @@ parameters:
   sep:
     type: string
     description: "separate repository name"
-  dup:
-    type: string
-    description: "Check duplicate repository name"
   dir:
     type: string
     default: "."
@@ -16,20 +13,17 @@ steps:
       environment:
         PARAM_SEP: <<parameters.sep>>
         PARAM_DIR: <<parameters.dir>>
-        PARAM_DUP: <<parameters.dup>>
       name: separate repository name
       command: <<include(scripts/sep.sh)>>
   - run:
       environment:
         PARAM_SEP: <<parameters.sep>>
         PARAM_DIR: <<parameters.dir>>
-        PARAM_DUP: <<parameters.dup>>
       name: Check duplicate repository name
       command: <<include(scripts/dup.sh)>>
   - run:
       environment:
         PARAM_SEP: <<parameters.sep>>
         PARAM_DIR: <<parameters.dir>>
-        PARAM_DUP: <<parameters.dup>>
       name: check repository name match with project name
       command: <<include(scripts/match.sh)>>
