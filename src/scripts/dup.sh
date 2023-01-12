@@ -1,7 +1,7 @@
 #!/bin/bash
 
-file1="github-actions-repositories.yaml"
-file2="circleci-repositories.yaml"
+file1="${PARAM_FI1}"
+file2="${PARAM_FI2}"
 
 # Create an empty array to store the unique words from file1
 declare -a uniqueWords

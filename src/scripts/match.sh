@@ -1,6 +1,6 @@
 #!/bin/bash
 
-file="circleci-repositories.yaml"
+file="${PARAM_FI2}"
 while IFS= read -r line; do
       if [[ $line == "${CIRCLE_PROJECT_REPONAME}" ]] ; then
         echo "circleci repository match"
