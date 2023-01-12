@@ -1,7 +1,5 @@
 description: >
-  This command will seperate repository name (circleci , githubactions) from your repositories-name file files 
-  and generate 2 files (circleci-repositories.yaml and github-actions-repositories.yaml).
-
+  This command will seperate repository name (circleci , githubactions) from your repositories-name file files and generate 2 files (circleci-repositories.yaml and github-actions-repositories.yaml).
 parameters:
   sep:
     type: string

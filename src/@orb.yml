@@ -3,7 +3,6 @@ version: 2.1
 description: >
   This orb is used to switch between circleci and github actions.
   Please read README file on github to learn more about this feature.
-
 # This information will be displayed in the orb registry and is not mandatory.
 display:
   home_url: "https://github.com/amornc/switch-orb"
