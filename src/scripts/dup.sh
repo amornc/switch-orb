@@ -1,7 +1,7 @@
 #!/bin/bash
 
-ls -lah
-grep -F -f circleci-repositories.yaml github-actions-repositories.yaml
+#ls -lah
+#grep -F -f circleci-repositories.yaml github-actions-repositories.yaml
 cat circleci-repositories.yaml
 cat github-actions-repositories.yaml
 #compare=$(grep -F -f circleci-repositories.yaml github-actions-repositories.yaml)
