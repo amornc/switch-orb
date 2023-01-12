@@ -12,3 +12,4 @@ else
   echo "Repositories are duplicates"
   exit 1
 fi
+echo " 11 $compare"
