@@ -1,4 +1,4 @@
-##!/bin/bash
+#!/bin/bash
 #compare=$(grep -F -f circleci-repositories.yaml github-actions-repositories.yaml)
 #export compare
 #if [[ "$compare" != "" ]]; then
