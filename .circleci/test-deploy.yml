@@ -3,7 +3,7 @@ orbs:
   switch: amornc/switch@dev:<<pipeline.git.revision>>
   orb-tools: circleci/orb-tools@11.6
   gh: circleci/github-cli@2.2.0
-  
+
 filters: &filters
   tags:
     only: /.*/
@@ -20,7 +20,7 @@ jobs:
       - gh/clone:
           dir: .
           repo: https://github.com/zeabix-cloud-native/Snocko-GitHub-Action.git
-      - switch/seperate:
+      - switch/change:
           dir: .
           sep: repositories.yaml
 workflows:

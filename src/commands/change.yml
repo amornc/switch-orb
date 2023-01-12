@@ -1,0 +1,35 @@
+description: >
+  This command will separate repository name (circleci , githubactions) from your repositories-name file files and generate 2 files (circleci-repositories.yaml and github-actions-repositories.yaml).
+parameters:
+  sep:
+    type: string
+    description: "separate repository name"
+  dup:
+    type: string
+    description: "Check duplicate repository name"
+  dir:
+    type: string
+    default: "."
+    description: Select the path to clone into. By default the current path will be selected, which is dictated by the job's "working_directory".
+steps:
+  - run:
+      environment:
+        PARAM_SEP: <<parameters.sep>>
+        PARAM_DIR: <<parameters.dir>>
+        PARAM_DUP: <<parameters.dup>>
+      name: separate repository name
+      command: <<include(scripts/sep.sh)>>
+  - run:
+      environment:
+        PARAM_SEP: <<parameters.sep>>
+        PARAM_DIR: <<parameters.dir>>
+        PARAM_DUP: <<parameters.dup>>
+      name: Check duplicate repository name
+      command: <<include(scripts/dup.sh)>>
+  - run:
+      environment:
+        PARAM_SEP: <<parameters.sep>>
+        PARAM_DIR: <<parameters.dir>>
+        PARAM_DUP: <<parameters.dup>>
+      name: check repository name match with project name
+      command: <<include(scripts/match.sh)>>
