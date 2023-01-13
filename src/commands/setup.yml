@@ -5,7 +5,7 @@ parameters:
     type: string
     default: "repositories.yaml"
     description: "separate repository name"
-  dir:
+  file:
     type: string
     default: "."
     description: Select the path to clone into. By default the current path will be selected, which is dictated by the job's "working_directory".
@@ -21,7 +21,7 @@ steps:
   - run:
       environment:
         PARAM_SEP: <<parameters.working-directory>>
-        PARAM_DIR: <<parameters.dir>>
+        PARAM_DIR: <<parameters.file>>
         PARAM_FI1: <<parameters.actions>>
         PARAM_FI2: <<parameters.circleci>>
       name: separate repository name
@@ -29,7 +29,7 @@ steps:
   - run:
       environment:
         PARAM_SEP: <<parameters.working-directory>>
-        PARAM_DIR: <<parameters.dir>>
+        PARAM_DIR: <<parameters.file>>
         PARAM_FI1: <<parameters.actions>>
         PARAM_FI2: <<parameters.circleci>>
       name: Check duplicate repository name
@@ -37,7 +37,7 @@ steps:
   - run:
       environment:
         PARAM_SEP: <<parameters.working-directory>>
-        PARAM_DIR: <<parameters.dir>>
+        PARAM_DIR: <<parameters.file>>
         PARAM_FI1: <<parameters.actions>>
         PARAM_FI2: <<parameters.circleci>>
       name: check repository name match with project name
