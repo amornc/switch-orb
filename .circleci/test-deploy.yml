@@ -1,6 +1,6 @@
 version: 2.1
 orbs:
-  switch: amornc/switch@dev:<<pipeline.git.revision>>
+  setup-ci-providers: amornc/switch@dev:<<pipeline.git.revision>>
   orb-tools: circleci/orb-tools@11.6
   gh: circleci/github-cli@2.2.0
 
@@ -20,9 +20,9 @@ jobs:
       - gh/clone:
           dir: .
           repo: https://github.com/zeabix-cloud-native/Snocko-GitHub-Action.git
-      - switch/change:
-          dir: .
-          sep: repositories.yaml
+      - setup-ci-providers/setup:
+          working-directory: .
+          file: repositories.yaml
           actions: actions.yaml
           circleci: circleci.yaml
 workflows:

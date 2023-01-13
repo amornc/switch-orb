@@ -20,9 +20,9 @@ done < "$file1"
 
 # Loop through each line in file2
 while read -r line; do
-  # Loop through each word in the line
+  # Loop through each repository in the line
   for word in $line; do
-    # Check if the word is in the array of unique words from file1
+    # Check if the repository is in the array of unique repositories from file1
     if [[ " ${uniqueWords[*]} " =~  ${word}  ]]; then
       # If it is, print the word and exit with a non-zero status
       echo "Duplicate repository found: $word"
@@ -31,6 +31,6 @@ while read -r line; do
   done
 done < "$file2"
 
-# If no duplicate words are found, exit with a status of 0
+# If no duplicate repositories are found, exit with a status of 0
 echo "No duplicate repository found."
 exit 0

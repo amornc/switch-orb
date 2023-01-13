@@ -1,7 +1,7 @@
 description: >
   This command will separate repository name (circleci , githubactions) from your repositories-name file files and generate 2 files (circleci-repositories.yaml and github-actions-repositories.yaml).
 parameters:
-  sep:
+  working-directory:
     type: string
     default: "repositories.yaml"
     description: "separate repository name"
@@ -20,7 +20,7 @@ parameters:
 steps:
   - run:
       environment:
-        PARAM_SEP: <<parameters.sep>>
+        PARAM_SEP: <<parameters.working-directory>>
         PARAM_DIR: <<parameters.dir>>
         PARAM_FI1: <<parameters.actions>>
         PARAM_FI2: <<parameters.circleci>>
@@ -28,7 +28,7 @@ steps:
       command: <<include(scripts/sep.sh)>>
   - run:
       environment:
-        PARAM_SEP: <<parameters.sep>>
+        PARAM_SEP: <<parameters.working-directory>>
         PARAM_DIR: <<parameters.dir>>
         PARAM_FI1: <<parameters.actions>>
         PARAM_FI2: <<parameters.circleci>>
@@ -36,7 +36,7 @@ steps:
       command: <<include(scripts/dup.sh)>>
   - run:
       environment:
-        PARAM_SEP: <<parameters.sep>>
+        PARAM_SEP: <<parameters.working-directory>>
         PARAM_DIR: <<parameters.dir>>
         PARAM_FI1: <<parameters.actions>>
         PARAM_FI2: <<parameters.circleci>>
