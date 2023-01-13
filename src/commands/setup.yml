@@ -20,24 +20,24 @@ parameters:
 steps:
   - run:
       environment:
-        PARAM_SEP: <<parameters.working-directory>>
-        PARAM_DIR: <<parameters.file>>
+        PARAM_DIR: <<parameters.working-directory>>
+        PARAM_SEP: <<parameters.file>>
         PARAM_FI1: <<parameters.actions>>
         PARAM_FI2: <<parameters.circleci>>
       name: separate repository name
       command: <<include(scripts/sep.sh)>>
   - run:
       environment:
-        PARAM_SEP: <<parameters.working-directory>>
-        PARAM_DIR: <<parameters.file>>
+        PARAM_DIR: <<parameters.working-directory>>
+        PARAM_SEP: <<parameters.file>>
         PARAM_FI1: <<parameters.actions>>
         PARAM_FI2: <<parameters.circleci>>
       name: Check duplicate repository name
       command: <<include(scripts/dup.sh)>>
   - run:
       environment:
-        PARAM_SEP: <<parameters.working-directory>>
-        PARAM_DIR: <<parameters.file>>
+        PARAM_DIR: <<parameters.working-directory>>
+        PARAM_SEP: <<parameters.file>>
         PARAM_FI1: <<parameters.actions>>
         PARAM_FI2: <<parameters.circleci>>
       name: check repository name match with project name
